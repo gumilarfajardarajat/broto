@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pelanggan',function(){
-	return view('layouts.pelanggan');
-});
+Route::get('/menu','pemesananController@show');
+Route::get('/pemesanan/menu','pemesananController@menu');
+Route::get('/pemesanan/menu/appetizer','pemesananController@appetizer');
+Route::get('/pemesanan/menu/makanan','pemesananController@makanan');
+Route::get('/pemesanan/menu/minuman','pemesananController@minuman');
+Route::get('/pemesanan/menu/dessert','pemesananController@dessert');
