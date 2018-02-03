@@ -9,17 +9,19 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
 
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                background-color: #DEDED6;
+                color: #636B6F;
+                font-family: 'Noto Sans';
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
             }
+
 
             .full-height {
                 height: 100vh;
@@ -66,29 +68,26 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    Broto
+                    <img src="/img/logo.png" style="height:250px;margin-bottom: 50px;">
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                @if (Route::has('login'))
+                    <div class="links">
+                        @auth
+                            <a href="{{ url('/home') }}">Home</a>
+                        @else
+                            <table>
+                            <!-- <a href="{{ route('register') }}">Register</a> -->                        
+                            | <a href="{{ route('login') }}">User</a> 
+                            | <a href="{{url('/koki')}}">Koki</a> 
+                            | <a href="#">Pantry</a> 
+                            | <a href="#">Kasir</a> 
+                            | <a href="{{ url('/admin/menu') }}">Admin</a> |
+                            </table>
+                        @endauth
+                    </div>
+                @endif              
             </div>
         </div>
     </body>

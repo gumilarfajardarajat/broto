@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Menu;
 use App\Pelanggan;
+use Auth;
+use Carbon\Carbon;   
 class pemesananController extends Controller
 {
     //
@@ -26,6 +28,7 @@ class pemesananController extends Controller
         $pelanggan = new Pelanggan;
         $pelanggan->no_pelanggan = $request->no_pelanggan;
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
+        $pelanggan->id = Auth::user()->id;
         $pelanggan->save();
         $request->session()->put('no_pelanggan', $pelanggan->no_pelanggan);
         return redirect('pemesanan/home');
@@ -59,13 +62,17 @@ class pemesananController extends Controller
     }
 
     public function addCart(Request $request){
+        $now = Carbon::now();
         $kode_menu = $request->kode_menu; 
         $jumlah = $request->jumlah; 
         DB::table('cart')->insert(
             [
                 'no_pelanggan' => session()->get('no_pelanggan'), 
                 'kode_menu' => $kode_menu,
-                'jumlah' => $jumlah
+                'jumlah' => $jumlah,
+                // 'waktu_pesan' => $now->toTimeString(),
+                // 'tgl_pesan' => $now->toDateString(),                
+                
             ]
         );
         return redirect('/pemesanan/menu');        
@@ -81,13 +88,29 @@ class pemesananController extends Controller
     }
 
     public function kirimCart(){
+        $cart = DB::table('cart')->get();
+                // 'waktu_pesan' => $now->toTimeString(),
+                // 'tgl_pesan' => $now->toDateString(),         
+        foreach($cart as $c){
+            DB::table('pemesanan')->insert(
+                [
+                    'no_pelanggan' => $c->no_pelanggan, 
+                    'kode_menu' => $c->kode_menu,
+                    'jumlah' => $c->jumlah,
+
+                    // 'waktu_pesan' => $now->toTimeString(),
+                    // 'tgl_pesan' => $now->toDateString(),                
+                    
+                ]   
+            );            
+        }
         $cart = DB::table('cart')->delete();
         return redirect('/pemesanan/home');
     }
 
     public function keluar(){
-        session()->flush();
-        return redirect('/');
+        session()->forget('no_pelanggan');
+        return redirect('/pemesanan');
     }
 
 

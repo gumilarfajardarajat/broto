@@ -34,6 +34,7 @@
 		}
 		
 		.bg{
+			margin-top: 20px;
 			background-color: #DEDED6;
 			width: 478px;
 			display: inline-block;
@@ -45,6 +46,25 @@
 	</style>
 </head>
 <body>
+	<div class="navigasi">		
+        <a style="text-decoration: none; color:white; margin-top:20px; margin-left:20px; display: block;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+            {{ Auth::user()->keterangan }} <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li>
+                <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+        </ul>
+	</div>	
 	<div class="bg">
 		<img src="/img/logo.png" style="margin-left:30%; height:187px">
 		<form action="/pemesanan/home" method="post" style="padding: 50px 80px 0">
