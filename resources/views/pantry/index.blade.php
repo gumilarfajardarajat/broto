@@ -3,6 +3,7 @@
 
 @section('content')
 	<div class="container">
+		<h1 class="text-center">Pesanan</h1>
 		<div class="content" style="padding:20px 80px; background-color: white;">
 			<table class="table" style="background-color: white;">
 				<thead>
@@ -23,7 +24,7 @@
 							<td>{{$order->nama_pelanggan}}</td>
 							<td>{{$order->jumlah}}</td>
 							<td>
-								<a href="/koki/{{$order->antrian}}/{{$order->jumlah}}" class="btn btn-primary">Ambil</a>
+								<a href="/pantry/pemesanan/{{$order->antrian}}/{{$order->jumlah}}" class="btn btn-primary">Ambil</a>
 							</td>
 						</tr>
 					@endforeach		

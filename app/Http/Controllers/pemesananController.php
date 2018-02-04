@@ -62,7 +62,7 @@ class pemesananController extends Controller
     }
 
     public function addCart(Request $request){
-        $now = Carbon::now();
+        
         $kode_menu = $request->kode_menu; 
         $jumlah = $request->jumlah; 
         DB::table('cart')->insert(
@@ -88,18 +88,25 @@ class pemesananController extends Controller
     }
 
     public function kirimCart(){
+        $antrian = count(DB::table('pemesanan')
+                ->select(DB::raw('antrian'))
+                ->groupBy('antrian')
+                ->get()
+            );
+        $antrian = $antrian + 1;            
+        $now = Carbon::now();
         $cart = DB::table('cart')->get();
-                // 'waktu_pesan' => $now->toTimeString(),
-                // 'tgl_pesan' => $now->toDateString(),         
+        $waktu_pesan = $now->toTimeString();
+        $tgl_pesan = $now->toDateString();         
         foreach($cart as $c){
             DB::table('pemesanan')->insert(
                 [
                     'no_pelanggan' => $c->no_pelanggan, 
                     'kode_menu' => $c->kode_menu,
                     'jumlah' => $c->jumlah,
-
-                    // 'waktu_pesan' => $now->toTimeString(),
-                    // 'tgl_pesan' => $now->toDateString(),                
+                    'waktu_pesan' => $waktu_pesan,
+                    'tgl_pesan' => $tgl_pesan,
+                    'antrian' => $antrian,               
                     
                 ]   
             );            

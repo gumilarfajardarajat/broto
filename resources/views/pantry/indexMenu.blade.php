@@ -1,9 +1,11 @@
-@extends('admin')
+@extends('layouts.pantry')
 
 @section('title','Menu')
 
 @section('content')
-	<a href="/admin/menu/create" class="btn btn-primary "><span class="glyphicon glyphicon-plus"></span> Tambah</a>
+	<div class="container">
+	<div class="content" style="padding:20px 60px; background-color: white;">
+	<a href="/pantry/menu/create" class="btn btn-primary "><span class="glyphicon glyphicon-plus"></span> Tambah</a>
 	<table class="table" style="background-color: white;">
 		<thead>
 			<tr>
@@ -28,12 +30,12 @@
 				<td>{{$m->harga}}</td>
 				<td>{{$m->kategori}}</td>
 				<td>
-					<a href="/admin/menu/{{$m->kode_menu}}" class="btn btn-info btn-md">
+					<a href="/pantry/menu/{{$m->kode_menu}}" class="btn btn-info btn-md">
 					    <span class="glyphicon glyphicon-pencil"></span> Edit 
 					</a>
 				</td>
 				<td>
-			        <form action="/admin/menu/{{$m->kode_menu}}" method="post">
+			        <form action="/pantry/menu/{{$m->kode_menu}}" method="post">
 				        <button type="submit" name="submit" class="btn btn-danger btn-md">
 				        	<span class="glyphicon glyphicon-trash"></span> Delete
 				        </button>
@@ -45,4 +47,6 @@
 			@endforeach				
 		</tbody>
 	</table>
+	</div>
+	</div>
 @endsection

@@ -75,14 +75,21 @@
                 @if (Route::has('login'))
                     <div class="links">
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                            <table>
+                            <!-- <a href="{{ route('register') }}">Register</a> -->                        
+                            | <a href="{{ route('login') }}">User</a> 
+                            | <a href="/pantry/bahan">Pantry</a> 
+                            | <a href="#">Kasir</a> 
+                            |<a href="{{ route('register') }}">Register</a>
+                            | <a href="{{ url('/admin/menu') }}">Admin</a> |
+                            </table>
                         @else
                             <table>
                             <!-- <a href="{{ route('register') }}">Register</a> -->                        
                             | <a href="{{ route('login') }}">User</a> 
-                            | <a href="{{url('/koki')}}">Koki</a> 
-                            | <a href="#">Pantry</a> 
+                            | <a href="/pantry/bahan">Pantry</a> 
                             | <a href="#">Kasir</a> 
+                            |<a href="{{ route('register') }}">Register</a>
                             | <a href="{{ url('/admin/menu') }}">Admin</a> |
                             </table>
                         @endauth

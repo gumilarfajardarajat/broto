@@ -75,6 +75,9 @@
 			<div class="form-group">
 				<label for="email">Nama Pelanggan :</label>
 				<input type="text"  class="form-control" name="nama_pelanggan" style="height:50px;">
+				@if($errors->has('nama_pelanggan'))
+					<p style="color:#cc0000">{{ $errors->first('nama_pelanggan')}}</p>
+				@endif					
 			</div>
 			<input type="submit" value="Check In" style="background-color:#935D2E; border-style: none; width: 100%; color:white; height: 50px;">
 			{{csrf_field()}}
