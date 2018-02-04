@@ -79,7 +79,7 @@
                             <!-- <a href="{{ route('register') }}">Register</a> -->                        
                             | <a href="{{ route('login') }}">User</a> 
                             | <a href="/pantry/bahan">Pantry</a> 
-                            | <a href="#">Kasir</a> 
+                            | <a href="/kasir/pembayaran">Kasir</a> 
                             |<a href="{{ route('register') }}">Register</a>
                             | <a href="{{ url('/admin/menu') }}">Admin</a> |
                             </table>
@@ -88,7 +88,7 @@
                             <!-- <a href="{{ route('register') }}">Register</a> -->                        
                             | <a href="{{ route('login') }}">User</a> 
                             | <a href="/pantry/bahan">Pantry</a> 
-                            | <a href="#">Kasir</a> 
+                            | <a href="/kasir/pembayaran">Kasir</a> 
                             |<a href="{{ route('register') }}">Register</a>
                             | <a href="{{ url('/admin/menu') }}">Admin</a> |
                             </table>

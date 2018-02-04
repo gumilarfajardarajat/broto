@@ -82,5 +82,7 @@ Route::get('/pantry/bahan/{kode_bahan}','PantryController@editBahan');
 Route::put('/pantry/bahan/{kode_bahan}','PantryController@updateBahan');
 Route::delete('/pantry/bahan/{kode_bahan}','PantryController@destroyBahan');
 
-// Route::get('/koki/{antrian}/{jumlah}','PantryController@pengiriman');
+
+Route::get('/kasir/pembayaran','KasirController@indexPembayaran');
+Route::get('/kasir/kepuasan','KasirController@kepuasan');
 
