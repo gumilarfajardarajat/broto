@@ -26,6 +26,7 @@ class pemesananController extends Controller
 
     public function storePelanggan(Request $request){
         $pelanggan = new Pelanggan;
+        $pelanggan->status = 'checkin';
         $pelanggan->no_pelanggan = $request->no_pelanggan;
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
         $pelanggan->id = Auth::user()->id;
@@ -116,6 +117,10 @@ class pemesananController extends Controller
     }
 
     public function keluar(){
+        $no_pelanggan = session()->get('no_pelanggan');
+        $pelanggan = Pelanggan::find($no_pelanggan);
+        $pelanggan->status = 'checkout';
+        $pelanggan->save();
         session()->forget('no_pelanggan');
         return redirect('/pemesanan');
     }
