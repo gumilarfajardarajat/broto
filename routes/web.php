@@ -69,10 +69,12 @@ Route::get('/pantry/pemesanan/kirim/{antrian}','PantryController@kirim');
 Route::get('/pantry/pemesanan/{antrian}/{jumlah}','PantryController@pengiriman');
 
 Route::get('/pantry/resep/','PantryController@indexResep');
+
 Route::get('/pantry/resep/show/{kode_menu}','PantryController@showBahan');
+
 Route::get('/pantry/resep/add/{kode_menu}','PantryController@addBahan');
 Route::post('/pantry/resep/{kode_menu}','PantryController@storeBahanResep');
-
+Route::delete('/pantry/resep/show/{kode_bahan}/{kode_menu}','PantryController@destroyResepBahan');
 
 
 Route::get('/pantry/bahan','PantryController@indexBahan');
@@ -84,5 +86,8 @@ Route::delete('/pantry/bahan/{kode_bahan}','PantryController@destroyBahan');
 
 
 Route::get('/kasir/pembayaran','KasirController@indexPembayaran');
+Route::get('/kasir/pembayaran/{no_pelanggan}','KasirController@bayar');
+
+Route::get('/kasir/pendapatan','KasirController@indexPendapatan');
 Route::get('/kasir/kepuasan','KasirController@kepuasan');
 

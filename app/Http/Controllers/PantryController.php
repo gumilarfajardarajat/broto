@@ -201,6 +201,16 @@ class PantryController extends Controller
         return view('pantry.showBahan',['bahan'=>$bahan,'menu'=>$menu]);
       }
 
+    public function destroyResepBahan($kode_bahan,$kode_menu){
+        DB::table('pembuatan')
+        ->where([
+            ['kode_menu',$kode_menu],
+            ['kode_bahan',$kode_bahan]
+        ])
+        ->delete();
+        return redirect('/pantry/resep');
+    }      
+
 
 //Menu
     public function indexMenu(){

@@ -26,7 +26,8 @@ class pemesananController extends Controller
 
     public function storePelanggan(Request $request){
         $pelanggan = new Pelanggan;
-        $pelanggan->status = 'checkin';
+        $pelanggan->aktivitas = 'checkin';
+        $pelanggan->status = 'belum bayar';
         $pelanggan->no_pelanggan = $request->no_pelanggan;
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
         $pelanggan->id = Auth::user()->id;
@@ -111,7 +112,21 @@ class pemesananController extends Controller
                     
                 ]   
             );            
+
+            DB::table('pembayaran')->insert(
+                [
+                    'no_pelanggan' => $c->no_pelanggan, 
+                    'kode_menu' => $c->kode_menu,
+                    'jumlah' => $c->jumlah,
+                    'waktu_pesan' => $waktu_pesan,
+                    'tgl_pesan' => $tgl_pesan,
+                                 
+                    
+                ]   
+            );  
+
         }
+
         $cart = DB::table('cart')->delete();
         return redirect('/pemesanan/home');
     }
@@ -119,7 +134,7 @@ class pemesananController extends Controller
     public function keluar(){
         $no_pelanggan = session()->get('no_pelanggan');
         $pelanggan = Pelanggan::find($no_pelanggan);
-        $pelanggan->status = 'checkout';
+        $pelanggan->aktivitas = 'checkout';
         $pelanggan->save();
         session()->forget('no_pelanggan');
         return redirect('/pemesanan');

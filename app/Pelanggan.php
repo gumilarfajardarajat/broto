@@ -15,6 +15,8 @@ class Pelanggan extends Model
     	'id',
     	'no_pelanggan',
     	'nama_pelanggan',
+    	'aktivitas',
+    	'status',
     ];
 
     protected $primaryKey = 'no_pelanggan';

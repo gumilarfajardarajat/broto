@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
     <style type="text/css">
         body{
-            background-color: ##BD7E48;
+            background-color: #DEDED6;
             font-family: 'Noto Sans';
 
         }
@@ -23,9 +23,7 @@
     </style>
 </head>
 <body>
-    <div id="app">
-
-
+    <div id="app">    
         @yield('content')
     </div>
 

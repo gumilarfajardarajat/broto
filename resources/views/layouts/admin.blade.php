@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Pantry</title>
+    <title>Admin</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="">
-                       <span class="alink">Pantry</span>
+                       <span class="alink">Admin</span>
                     </a>                    
                 </div>
 
@@ -59,30 +59,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">    
                         <li>
-                            <a href="/pantry/pemesanan" style="color: white;">
-                              <span class="glyphicon glyphicon-envelope"></span> Pesanan
+                            <a href="/{{ route('register') }}" style="color: white;">
+                              <span class="glyphicon glyphicon-credit-card"></span> Tambah User
                             </a>                                
                         </li> 
-                       <li>
-                            <a href="/pantry/menu" style="color: white;">
-                              <span class="glyphicon glyphicon-cutlery"></span> Menu
-                            </a>                                
-                        </li>                                                 
-                        <li>
-                            <a href="/pantry/bahan" style="color: white;">
-                              <span class="glyphicon glyphicon-list-alt"></span> Bahan
-                            </a>                                
-                        </li>                        
-                        <li>
-                            <a href="/pantry/resep" style="color: white;">
-                              <span class="glyphicon glyphicon-book"></span> Resep
-                            </a>                                
-                        </li>
                         <li>
                             <a href="{{ url('/') }}" style="color: white;">
                               <span class="glyphicon glyphicon-log-out"></span> Keluar
                             </a>                                
-                        </li>                                         
+                        </li>                                           
                     </ul>
                 </div>
             </div>

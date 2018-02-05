@@ -80,8 +80,7 @@
                             | <a href="{{ route('login') }}">User</a> 
                             | <a href="/pantry/bahan">Pantry</a> 
                             | <a href="/kasir/pembayaran">Kasir</a> 
-                            |<a href="{{ route('register') }}">Register</a>
-                            | <a href="{{ url('/admin/menu') }}">Admin</a> |
+                            |<a href="{{ route('register') }}">Admin</a> |
                             </table>
                         @else
                             <table>
@@ -89,8 +88,7 @@
                             | <a href="{{ route('login') }}">User</a> 
                             | <a href="/pantry/bahan">Pantry</a> 
                             | <a href="/kasir/pembayaran">Kasir</a> 
-                            |<a href="{{ route('register') }}">Register</a>
-                            | <a href="{{ url('/admin/menu') }}">Admin</a> |
+                            |<a href="{{ route('register') }}">Admin</a> |
                             </table>
                         @endauth
                     </div>

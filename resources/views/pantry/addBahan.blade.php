@@ -3,7 +3,7 @@
 @section('title','Menu')
 
 @section('content')
-		<form action="/koki/resep/{{$menu->kode_menu}}" method="post" style="padding: 50px 80px 0" enctype="multipart/form-data">
+		<form action="/pantry/resep/{{$menu->kode_menu}}" method="post" style="padding: 50px 80px 0" enctype="multipart/form-data">
 		  	<div class="form-group">
 			  	<label for="email">Kode Menu :</label>		
 					<input type="text" class="form-control" name="kode_menu" maxlength="4" style="height:50px;" value="{{$menu->kode_menu}}" readonly>
